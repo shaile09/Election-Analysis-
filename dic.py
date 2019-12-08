@@ -1,3 +1,11 @@
+'''temperature = int(input("What is the temperature outside? "))
+
+if temperature > 80:
+    print("Turn on the AC.")
+else:
+    print("Open the windows.")'''
+
+
 voting_data = [{"county":"Arapahoe", "registered_voters": 422829},
                 {"county":"Denver", "registered_voters": 463353},
                 {"county":"Jefferson", "registered_voters": 432438}]

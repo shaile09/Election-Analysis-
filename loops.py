@@ -33,4 +33,3 @@ message_to_candidate = (
 
 print(message_to_candidate)
 
-counties_dict = {"Arapahoe": 422829, "Denver": 463353, "Jefferson": 432438}
