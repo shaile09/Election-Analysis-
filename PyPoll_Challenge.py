@@ -20,7 +20,7 @@ candidate_options = []
 candidate_votes = {}
 
 #county options and value 
-counties = [] #list
+county_options = [] #list
 county_votes = {} #key and values (dictionary has been defined)
 
 # Track the winning candidate, vote count, and percentage.
@@ -50,10 +50,10 @@ with open(file_to_load) as election_data:
             # Add a vote to that candidate's count.
         candidate_votes[candidate_name] += 1
 
-        # If the county does not match any existing counties, add the county to list.
-        if county_name not in counties:
+        # If the county does not match any existing county, add the county to list.
+        if county_name not in county_options:
             # Add the county name to the county list.
-            counties.append(county_name)
+            county_options.append(county_name)
             # And begin tracking that county's voter count.
             county_votes[county_name] = 0
             # Add a vote to that county's count.
@@ -76,11 +76,10 @@ with open(file_to_save, "w") as txt_file:
     txt_file.write(f"County Votes:\n") #write to the textfile
     for county in county_votes:
         # Retrieve vote count and percentage.
-        co_votes = county_votes[county]
-        co_vote_percentage = float(co_votes) / float(total_votes) * 100
+        counties_votes = county_votes[county]
+        counties_vote_percentage = float(counties_votes) / float(total_votes) * 100
         county_results = (
-            # f"County Votes:\n"
-            f"{county}: {co_vote_percentage:.1f}% ({co_votes:,})\n")
+            f"{county}: {counties_vote_percentage:.1f}% ({counties_votes:,})\n")
         # Print each county's voter count and percentage to the terminal.
         print(county_results)
         #  Save the county results to our text file.
@@ -99,7 +98,6 @@ with open(file_to_save, "w") as txt_file:
             print(largest_county_summary)
             # Save the largest county to the text file.
             txt_file.write(largest_county_summary)
-            
 
     for candidate in candidate_votes:
         # Retrieve vote count and percentage.
